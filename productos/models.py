@@ -1,7 +1,5 @@
 from django.db import models
 
-from django.db import models
-
 COLORES_PRIMARIOS = [
     ('Red', 'Rojo'),
     ('Blue', 'Azul'),
@@ -52,11 +50,11 @@ class Sucursal(models.Model):
         return self.nombre_canton
 
 
-# Modelo ProductoSucursal
+""" # Modelo ProductoSucursal
 class ProductoSucursal(models.Model):
     sucursal = models.ForeignKey(Sucursal, on_delete=models.CASCADE, related_name='productos_sucursal')
     variante = models.ForeignKey(ProductoVariante, on_delete=models.CASCADE, related_name='sucursales')
     stock = models.PositiveIntegerField(default=0)
 
     def __str__(self):
-        return f"{self.variante.producto.nombre} en {self.sucursal.nombre_canton}"
+        return f"{self.variante.producto.nombre} en {self.sucursal.nombre_canton}" """
