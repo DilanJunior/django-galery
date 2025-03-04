@@ -29,7 +29,7 @@ DEBUG = False
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
-ALLOWED_HOSTS = ["http://0.0.0.0:8080/"]
+ALLOWED_HOSTS = ["http://0.0.0.0:8080/", "localhost"]
 
 # Application definition
 
