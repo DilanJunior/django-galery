@@ -1,1 +1,1 @@
-web: gunicorn server.wsgi                                                                                                                                      
+web: py manage.py collectstatic && gunicorn server.wsgi                                                                                                                                      
