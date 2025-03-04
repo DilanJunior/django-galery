@@ -29,7 +29,7 @@ DEBUG = True
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
-ALLOWED_HOSTS = ["http://0.0.0.0:8080/","127.0.0.1", "https://perfect-victory-production.up.railway.app/"]
+ALLOWED_HOSTS = ["http://0.0.0.0:8080/","127.0.0.1", "https://perfect-victory-production.up.railway.app/", "perfect-victory-production.up.railway.app"]
 
 # Application definition
 
