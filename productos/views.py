@@ -1,9 +1,31 @@
-from django.shortcuts import render, HttpResponse, redirect
-from django.http import HttpRequest
+from django.shortcuts import render, redirect
 from .models import Imagen
 from django.core.paginator import Paginator
 from datetime import timedelta
 from collections import defaultdict
+from django.core.cache import cache
+from django.http import HttpResponse
+import logging
+logger = logging.getLogger(__name__)
+
+
+def test_redis_cache(request):
+    try:
+        # Intenta almacenar un valor en Redis
+        cache.set('my_key', 'hello_redis', timeout=60 * 15)  # Se cachea por 15 minutos
+
+        # Intenta recuperar el valor
+        value = cache.get('my_key')
+
+        if value:
+            return HttpResponse(f'Cache hit: {value}')
+        else:
+            return HttpResponse('Cache miss')
+    except Exception as e:
+        logger.error(f"Error de caché: {e}")
+        return HttpResponse(f"Error: {str(e)}", status=500)
+
+# [07/Mar/2025 00:49:20] "GET /test-redis-cache/ HTTP/1.1" 500 145
  
 def Home(request):
     
