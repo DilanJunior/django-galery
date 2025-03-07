@@ -14,7 +14,3 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 app.autodiscover_tasks()
 
 
-
-@app.task(bind=True, ignore_result=True)
-def example_task(self):
-    print("You've triggered the example task!")
