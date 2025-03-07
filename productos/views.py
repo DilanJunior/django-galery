@@ -34,7 +34,7 @@ def Home(request):
     ]
 
     # Configuramos paginación (10 imágenes por página)
-    paginator = Paginator(list_images, 10)
+    paginator = Paginator(list_images, 1)
     page_number = request.GET.get('page')
     products = paginator.get_page(page_number)
 
@@ -45,6 +45,7 @@ def Home(request):
     cache.set(cache_key, context, timeout=60 * 10)
 
     return render(request, 'Home.html', context)
+
 
 
 
