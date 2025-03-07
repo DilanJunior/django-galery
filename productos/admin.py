@@ -1,8 +1,4 @@
 from django.contrib import admin
-from .models import Sucursal, ProductoVariante, Producto
+from .models import Imagen
 
-# Registrar modelos en el panel de administración
-#admin.site.register(ProductoSucursal)
-admin.site.register(Sucursal)
-admin.site.register(ProductoVariante)
-admin.site.register(Producto)
+admin.site.register(Imagen)
