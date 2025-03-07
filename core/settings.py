@@ -33,7 +33,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ["127.0.0.1", "django-galery-production.up.railway.app"]
 
-CSRF_TRUSTED_ORIGINS = ["http://*"]
+CSRF_TRUSTED_ORIGINS = ["http://*", "https://django-galery-production.up.railway.app/"]
 
 
 
