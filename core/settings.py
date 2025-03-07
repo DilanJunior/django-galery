@@ -31,9 +31,9 @@ SECRET_KEY = 'django-insecure-rh%q48o+_v9@55!ww-@w0s6jhea!=cf4helc$r63wz_c!wn9#q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["127.0.0.1", "django-galery-production.up.railway.app", "*"]
+ALLOWED_HOSTS = ["127.0.0.1", "django-galery-production.up.railway.app"]
 
-CSRF_TRUSTED_ORIGINS = ['https://django-galery-production.up.railway.app/']
+CSRF_TRUSTED_ORIGINS = ['https://django-galery-production.up.railway.app']
 
 CSRF_COOKIE_SECURE = True
 CSRF_COOKIE_HTTPONLY = False
