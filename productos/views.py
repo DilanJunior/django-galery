@@ -23,7 +23,7 @@ def Home(request):
     list_images = Imagen.objects.all().order_by('-fecha_subida')
 
     # Agrupar imágenes por mes de subida
-    grouped_images = defaultdict(list)
+    grouped_images = dict(grouped_images)
     for imagen in list_images:
         fecha_mes = imagen.fecha_subida.strftime("%Y-%m")
         grouped_images[fecha_mes].append(imagen)
@@ -42,7 +42,8 @@ def Home(request):
     context = {'grouped_images': grouped_images, 'products': products}
 
     # Guardamos en caché con un tiempo de expiración de 10 minutos
-    cache.set(cache_key, context, timeout=60 * 10)
+    cache.set(cache_key, context, timeout=60 * 5)  # Por ejemplo, 5 minutos
+
 
     return render(request, 'Home.html', context)
 
