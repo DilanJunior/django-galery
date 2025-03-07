@@ -29,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-rh%q48o+_v9@55!ww-@w0s6jhea!=cf4helc$r63wz_c!wn9#q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.getenv("DEBUG", "False").lower() == "true"
 
 ALLOWED_HOSTS = ["127.0.0.1", "tienda-jose-paolo.up.railway.app"]
 
@@ -95,10 +95,23 @@ DATABASES = {
 
 
 # Configuración para cacheo en Django usando Redis
+
+REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379")  # Usa localhost si no se define
+
+if DEBUG: 
+    REDIS_HOST = "redis://localhost:6379" 
+else :
+    print("DEBUG ES FALSE")
+    REDIS_HOST = REDIS_URL
+    
+
+# SIGO OBTENIENDO UN Server Error (500) DESDE QUE CONFIGURE REDIS LO RARO ES QUE EN EL DESPLOY UTILIZA REDIS_URL Y SI FUNCIONA
+    
+
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': os.getenv("REDIS_URL"),  # Sustituye con tu Redis URL
+        'LOCATION': REDIS_HOST,  # Sustituye con tu Redis URL
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
         }
