@@ -33,9 +33,11 @@ DEBUG = False
 
 ALLOWED_HOSTS = ["127.0.0.1", "django-galery-production.up.railway.app", "*"]
 
-CSRF_TRUSTED_ORIGINS = ['http://*', 'https://django-galery-production.up.railway.app/']
+CSRF_TRUSTED_ORIGINS = ['https://django-galery-production.up.railway.app/']
 
-
+CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_HTTPONLY = False
+CSRF_COOKIE_SAMESITE = "Lax"
 
 # Application definition
 
