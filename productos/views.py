@@ -23,7 +23,7 @@ def Home(request):
     list_images = Imagen.objects.all().order_by('-fecha_subida')
 
     # Agrupar imágenes por mes de subida
-    grouped_images = dict(grouped_images)
+    grouped_images = defaultdict(list)
     for imagen in list_images:
         fecha_mes = imagen.fecha_subida.strftime("%Y-%m")
         grouped_images[fecha_mes].append(imagen)

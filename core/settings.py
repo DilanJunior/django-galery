@@ -101,7 +101,7 @@ REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379")  # Usa localhost si
 if DEBUG: 
     REDIS_HOST = "redis://localhost:6379" 
 else :
-    print("DEBUG ES FALSE")
+    print("Projec in production")
     REDIS_HOST = REDIS_URL
     
 
